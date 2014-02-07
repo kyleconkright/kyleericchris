@@ -35,6 +35,19 @@ module.exports = function(grunt) {
       		    	'build/js/script.min.js': 'tmp/script.js'
       		    }
       		}
+	    },
+	    watch: {
+	     	css: {
+	        	files: 'lib/*.scss',
+	        	tasks: ['sass','autoprefixer'],
+	        	options: {
+	          		livereload: 9000,
+	        	},
+	      	},
+	      	scripts: {
+	      	    files: 'lib/*.coffee',
+	      	    tasks: ['coffee','uglify']
+	      	},
 	    }
 
   	});
@@ -44,9 +57,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-coffee');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task(s).
-  grunt.registerTask('default', ['uglify','sass','autoprefixer','coffee']);
+  grunt.registerTask('default', ['uglify','sass','autoprefixer','coffee','watch']);
 
 
 };
