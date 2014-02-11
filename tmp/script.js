@@ -1,15 +1,4 @@
 (function() {
-  $(function() {
-    return $.ajax({
-      url: 'data/series.json',
-      type: 'GET',
-      dataType: 'json',
-      success: function(results) {
-        return $.each(results.response.seriesList, function() {
-          return $('<div></div>').append('<h1>' + this.title + '</h1>').appendTo('#container');
-        });
-      }
-    });
-  });
+  $(function() {});
 
 }).call(this);
